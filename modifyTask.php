@@ -1,6 +1,7 @@
 <?php
-    require('controller/addTaskController.php');
     require('controller/showAllTaskController.php');
+    require('controller/getInfosOfEditTaskController.php');
+    require('controller/editTaskController.php');
 ?>
 
 <!DOCTYPE html>
@@ -25,17 +26,17 @@
 
         <div class="form-group row">
             <div class="col-8">
-                <input type="text" name="task_name"  placeholder="Tâche" class="form-control">
+                <input type="text" name="task_name"  placeholder="Tâche" class="form-control" value="<?= $task_name; ?>">
             </div>
             <div class="col-4">
-                <input type="date" name="task_date" class="form-control">
+                <input type="date" name="task_date" class="form-control" value="<?= $task_date; ?>">
             </div>
             <br><br>
             <div class="col-12">
-                <textarea type="text" name="task_comment" placeholder="Commentaire" class="form-control"></textarea>
+                <textarea type="text" name="task_comment" placeholder="Commentaire" class="form-control"><?= $task_comment; ?></textarea>
                 <br>
             </div>
-            <button class="btn btn-success" type="submit" name="validate">Ajouter</button>
+            <button class="btn btn-success" type="submit" name="validate">Modifier la tâche</button>
         </div>
     </form>
     
@@ -51,7 +52,6 @@
                         <small>Dead line : <?php echo $task['task_date']; ?></small>
                     </div>
                     <p class="mb-1"><?php echo $task['task_comment']; ?></p>
-                    <a href="modifyTask.php?id=<?php echo $task['id']; ?>" class="btn btn-info">Modifier</a>
                     <a href="controller/deleteTaskController.php?id=<?php echo $task['id']; ?>" class="btn btn-danger">Supprimer</a>
                 </div>
             </div> 
