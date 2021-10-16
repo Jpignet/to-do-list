@@ -14,6 +14,7 @@ if(isset($_POST['validate'])) {
         $insertTaskOnToDoList->execute(array($taskName, $taskDate, $taskComment));
 
         $successMsg = "La tache a bien été ajouté";
+        
 
     }else{
         $errorMsg = "Veuillez compléter tous les champs...";
